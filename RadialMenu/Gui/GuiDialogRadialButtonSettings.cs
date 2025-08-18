@@ -86,7 +86,7 @@ public class GuiDialogRadialButtonSettings : GuiDialog
         {
             SingleComposer = capi.Gui.CreateCompo("radialmenu:radialbutton-settings", mainBounds);
             SingleComposer.AddShadedDialogBG(backgroundBounds);
-            SingleComposer.AddDialogTitleBar(Lang.Get("radialmenu:radialbutton-settings", CurrentButton.Id), OnTitleBarClose);
+            SingleComposer.AddDialogTitleBar(text: Lang.Get("radialmenu:radialbutton-settings", CurrentButton.Id), onClose: OnTitleBarClose);
             SingleComposer.BeginChildElements(childBounds);
 
             SingleComposer.AddHorizontalTabs(Tabs, leftBounds.FlatCopy(), OnTabChanged, CairoFont.SmallButtonText(), CairoFont.SmallButtonText(), "tabs");
