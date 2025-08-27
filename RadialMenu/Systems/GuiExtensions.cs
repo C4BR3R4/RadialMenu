@@ -28,15 +28,11 @@ public static class GuiExtensions
 
     public static void DrawIcon(this RadialMenuButton button, ICoreClientAPI capi, Context context, ImageSurface surface, ElementBounds currentBounds)
     {
+        double[] bgra = ColorUtil.Hex2Doubles(button?.IconColor ?? "#FFFFFF");
+        double[] rgba = { bgra[2], bgra[1], bgra[0], bgra[3] };
+
         if (!string.IsNullOrEmpty(button?.IconSvg) && button.IconSvg.EndsWith(".svg") && capi.Assets.TryGet(button.IconSvg) is IAsset asset)
         {
-            int colorInt = ColorUtil.WhiteArgb;
-
-            if (!string.IsNullOrEmpty(button.IconColor))
-            {
-                colorInt = ColorUtil.Hex2Int(button.IconColor);
-            }
-
             capi.Gui.DrawSvg(
                 svgAsset: asset,
                 intoSurface: surface,
@@ -44,15 +40,9 @@ public static class GuiExtensions
                 posy: (int)(currentBounds.absPaddingY + GuiElement.scaled(4.0)),
                 width: (int)(currentBounds.InnerWidth - GuiElement.scaled(9.0)),
                 height: (int)(currentBounds.InnerHeight - GuiElement.scaled(9.0)),
-                color: colorInt);
+                color: ColorUtil.ColorFromRgba(rgba));
+
             return;
-        }
-
-        double[] colorRgba = ColorUtil.WhiteArgbDouble;
-
-        if (!string.IsNullOrEmpty(button?.IconColor))
-        {
-            colorRgba = ColorUtil.Hex2Doubles(button.IconColor);
         }
 
         capi.Gui.Icons.DrawIcon(
@@ -62,7 +52,7 @@ public static class GuiExtensions
             currentBounds.absPaddingY + GuiElement.scaled(4.0),
             currentBounds.InnerWidth - GuiElement.scaled(9.0),
             currentBounds.InnerHeight - GuiElement.scaled(9.0),
-            colorRgba);
+            rgba);
     }
 
     public static void RenderIcon(this RadialMenuButton button, ICoreClientAPI capi, float deltaTime, ElementBounds currentBounds)
