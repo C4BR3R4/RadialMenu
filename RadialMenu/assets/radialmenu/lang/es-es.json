@@ -1,0 +1,17 @@
+{
+    "// Radial Menu v1.0.3 || Enlace de VS ModDB: https://mods.vintagestory.at/radialmenu ": "",
+    "// Traducido por C4BR3R4 || Última Modificación: 24/FEB/2026 || Registro de Cambios: https://c4br3r4.es/index.php?topic=1370.0 ": "",
+
+    "radialbutton-tooltip": "<strong>{0}</strong><br><br><font color='gray'>Para configurar el botón, pulsa también la tecla <hk>shift</hk> .</font>",
+    "radialbutton-settings": "Radial Menu - Configuración del Botón {0}",
+    "hotkey-radialmenu": "Mod «Radial Menu» ► Abrir el Menú Radial",
+    "game:ingameerror-notsupportedkey": "No se admite esta Tecla. ¡Intenta asignar otra!",
+
+
+
+    "// Creadas para traducir las Acciones ": "",
+    "game:None": "Ninguna Acción",
+    "game:Submenu": "SubMenú",
+    "game:Hotkey": "Atajo de Teclas",
+    "game:Commands": "Comandos"
+}
